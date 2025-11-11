@@ -1,0 +1,208 @@
+/* Base styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 5%;
+  background-color: rgba(10, 61, 98, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* Added shadow for depth */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Added backdrop filter for a modern blur effect (optional) */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  /* Added transition for hover effect */
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  /* Added subtle scale effect on hover */
+  transform: scale(1.05);
+}
+
+/* Logo image */
+.logo img {
+  display: block;
+  max-height: 50px;
+  width: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  /* Added for underline animation */
+  position: relative;
+  padding: 5px 0;
+}
+
+/* Underline animation */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #2b93d8;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #2b93d8;
+  /* font-weight: bold; */ /* Removed to prevent layout shift */
+}
+
+/* Animate underline on hover/active */
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+/* Hamburger icon */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1300; /* Ensure it's above nav */
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  /* Added transition for 'X' animation */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger 'X' animation */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+
+/* === Non-Navbar Styles (Unchanged) === */
+.application-table {
+  width: 95%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background-color: #fdfdfd;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+.application-table th, .application-table td {
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  text-align: left;
+}
+.application-table th {
+  background-color: #007BFF;
+  color: #fff;
+}
+.application-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+h2.heading {
+  text-align: center;
+  margin-top: 40px;
+  color: #333;
+}
+/* ===================================== */
+
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    position: fixed; /* Changed to fixed to cover full screen */
+    top: 70px; /* Start below header */
+    left: 0;
+    right: 0;
+    /* Full width dropdown */
+    width: 100%;
+    background-color: rgba(10, 61, 98, 0.98);
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 0; /* No radius for full width */
+    z-index: 1200;
+
+    /* Animation: hide by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  }
+
+  nav ul.show {
+    /* Animation: show menu */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    /* Make links bigger tap targets */
+    display: block;
+    padding: 0.75rem 0;
+  }
+
+  /* Center the underline for mobile */
+  nav ul li a::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  nav ul li a:hover::after,
+  nav ul li a.active::after {
+    width: 50%; /* Make underline smaller */
+  }
+
+  .logo {
+    font-size: 1rem;
+    gap: 6px;
+  }
+  .logo img {
+    max-height: 36px;
+  }
+}

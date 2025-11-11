@@ -1,0 +1,222 @@
+:root {
+  --main: #005f73;
+  --accent: #ffb703;
+  --bg-light: #f5f7fa;
+  --text-dark: #232946;
+  --white: #fff;
+  --soft-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.09);
+  --section-pad: 6rem 1.5rem 3rem 1.5rem;
+  --radius: 22px;
+  --anim-ease: cubic-bezier(.7,.36,0,1.01);
+}
+
+body {
+  font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, var(--main) 65%, #48cae4 100%);
+  color: var(--white);
+  padding: 6rem 1.5rem 5rem 1.5rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-section:after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  background: radial-gradient(circle at 70% 30%, var(--accent) 10%, transparent 65%);
+  top: -60px; right: -100px;
+  opacity: 0.23;
+  z-index: 0;
+  pointer-events: none;
+  animation: move-glow 7s infinite alternate-reverse;
+}
+@keyframes move-glow {
+  from { transform: translateY(0);}
+  to { transform: translateY(60px);}
+}
+.hero-section h1 {
+  font-size: 3.1rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  letter-spacing: 1.5px;
+  animation: fadeDown 1.1s var(--anim-ease) both;
+}
+.hero-section p {
+  font-size: 1.28rem;
+  font-weight: 400;
+  animation: fadeUp 1.2s 0.3s var(--anim-ease) both;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes fadeDown {
+  from {opacity:0;transform:translateY(-35px);}
+  to {opacity:1;transform:translateY(0);}
+}
+@keyframes fadeUp {
+  from {opacity:0;transform:translateY(28px);}
+  to {opacity:1;transform:translateY(0);}
+}
+
+.mission {
+  background: var(--white);
+  margin: -3rem auto 2.5rem auto;
+  max-width: 900px;
+  padding: 3rem 2rem 2.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+  animation: fadeIn 1s .2s var(--anim-ease) both;
+}
+.mission h2 {
+  color: var(--main);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  letter-spacing: 1.2px;
+}
+.mission p {
+  color: #222a33;
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+@keyframes fadeIn {
+  from {opacity:0;transform:scale(.94);}
+  to {opacity:1;transform:scale(1);}
+}
+
+hr {
+  max-width: 1200px;
+  margin: 0 auto 4rem auto;
+  border: none;
+  border-bottom: 2px solid #e5e3e3;
+  opacity:.7;
+  animation: slideSeparator 1s .7s cubic-bezier(.55,.09,.68,1.37) both;
+}
+@keyframes slideSeparator {
+  from{transform: scaleX(0);}
+  to{transform: scaleX(1);}
+}
+
+.timeline {
+  padding: 3.5rem 0 2.3rem 0;
+  animation: fadeIn 1.2s both;
+}
+.timeline .container{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--soft-shadow);
+  position: relative;
+  z-index:2;
+}
+.timeline h2 {
+  color: var(--main);
+  font-size: 1.8rem;
+  letter-spacing: 1.1px;
+  margin-bottom: 0.6rem;
+  font-weight:700;
+  text-align:center;
+}
+@keyframes growChartIn {
+  from {opacity: 0;transform: scale(.9);}
+  to {opacity: 1;transform: scale(1);}
+}
+
+.team {
+  padding: 4rem 0 6rem 0;
+  animation: fadeIn 1s .7s var(--anim-ease) both;
+}
+.team .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.team h2 {
+  text-align: center;
+  font-size: 2.1rem;
+  color: var(--main);
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  letter-spacing: .6px;
+}
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.8rem;
+  margin-top: 2rem;
+  animation: fadeUp 1.2s 0.1s var(--anim-ease) both;
+}
+.team-members .member {
+  background: var(--white);
+  padding: 2.5rem 2rem 2.2rem 2rem;
+  border-radius: calc(var(--radius)*.8);
+  box-shadow: 0 4px 18px 0 rgba(31, 38, 135, 0.13);
+  text-align: center;
+  transition: transform 0.38s var(--anim-ease), box-shadow 0.38s var(--anim-ease);
+  position:relative;
+  min-width: 260px;
+  flex: 0 0 300px;
+  cursor: pointer;
+  overflow: hidden;
+  border-bottom: 4px solid var(--main);
+}
+.team-members .member:hover {
+  transform: translateY(-14px) scale(1.05) rotateZ(-1.5deg);
+  box-shadow: 0 14px 36px 0 rgba(31, 38, 135, 0.22), 0 6px 22px 0 rgba(0,0,0,0.11);
+  border-bottom: 4px solid var(--accent);
+  background: linear-gradient(120deg, #fff 85%, #fff0d6 100%);
+}
+.team-members .member img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+  border: 4px solid var(--main);
+  box-shadow: 0 1px 12px 0 rgba(31, 38, 135, 0.07);
+  transition: border-color 0.33s;
+  background: #e0eafc;
+}
+.team-members .member:hover img {
+  border-color: var(--accent);
+  box-shadow: 0 2px 18px 0 rgba(255, 183, 3, 0.30);
+}
+.team-members .member h3 {
+  font-size: 1.23rem;
+  color: var(--main);
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: fadeDown 1.1s both;
+}
+.team-members .member p {
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 0;
+  animation: fadeUp 1.1s .1s both;
+}
+
+@media (max-width: 700px) {
+  .hero-section h1 { font-size: 2.1rem;}
+  .mission, .timeline .container, .team .container { padding: 1.7rem;}
+  .team-members { gap: 1.1rem;}
+  .team-members .member { min-width:150px; padding:1.4rem;}
+  #achievementsChart { max-width: 99vw;}
+}
+@media (max-width: 1050px) {
+  .team-members{flex-direction:column;align-items:center;}
+}

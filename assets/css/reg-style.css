@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background: #007BFF;
+    background: linear-gradient(90deg, #007BFF 0%, #4a00e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    width: 800px;
+    height: 600px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.info-box {
+    width: 50%;
+    background: url('../images/login2.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+
+}
+
+.info-box .headline {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.info-box .subtext {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.register-box {
+    width: 50%;
+    padding: 40px;
+    background: #fff;
+}
+
+.register-box h2 {
+    margin-bottom: 30px;
+    color: #333;
+    position: relative;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.input-box .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-size: 18px;
+    color: #007BFF;
+}
+
+.input-box input, .input-box select {
+    width: 100%;
+    padding: 12px 12px 12px 35px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus, .input-box select:focus {
+    border-color: #2776ca;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #2776ca;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+        flex-direction: column;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .register-box {
+        width: 100%;
+        padding: 30px 20px;
+    }
+    
+    .register-box h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+    
+    .input-box input,
+    .input-box select {
+        font-size: 16px;
+        padding: 15px 12px 15px 35px;
+    }
+    
+    button {
+        font-size: 18px;
+        padding: 15px;
+    }
+    
+    .info-box {
+        display: none; /* Hide image section on mobile */
+    }
+}
